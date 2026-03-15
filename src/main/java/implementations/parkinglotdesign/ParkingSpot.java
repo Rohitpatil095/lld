@@ -6,15 +6,15 @@ public class ParkingSpot {
 
     private String id;
     private SpotType spotType;
-    private Object floor;
-    private Object building;
+    private Floor floor;
+    private Building building;
     private boolean isOccupied=false;
     private Vehicle parkedVehicle;
 
     // constructor, getters
 
 
-    public ParkingSpot(SpotType spotType, Object floor, Object building, Vehicle parkedVehicle) {
+    public ParkingSpot(SpotType spotType, Floor floor, Building building, Vehicle parkedVehicle) {
         this.spotType = spotType;
         this.floor = floor;
         this.building = building;
@@ -41,7 +41,7 @@ public class ParkingSpot {
         return floor;
     }
 
-    public void setFloor(Object floor) {
+    public void setFloor(Floor floor) {
         this.floor = floor;
     }
 
@@ -49,7 +49,7 @@ public class ParkingSpot {
         return building;
     }
 
-    public void setBuilding(Object building) {
+    public void setBuilding(Building building) {
         this.building = building;
     }
 
