@@ -26,4 +26,11 @@ public abstract  class Vehicle {
     public VehicleType getVehicleType() {
         return vehicleType;
     }
+
+    public static Vehicle createVehicle(String licensePlate, VehicleType vehicleType){
+        if(vehicleType.equals(VehicleType.MOTORCYCLE)){
+
+        }
+    }
+
 }

@@ -7,17 +7,17 @@ public class ParkingSpot {
     private String id;
     private SpotType spotType;
     private Floors floors;
-    private Building building;
+    private ParkingLot parkingLot;
     private boolean isOccupied=false;
     private Vehicle parkedVehicle;
 
     // constructor, getters
 
 
-    public ParkingSpot(SpotType spotType, Floors floors, Building building, Vehicle parkedVehicle) {
+    public ParkingSpot(SpotType spotType, Floors floors, ParkingLot parkingLot, Vehicle parkedVehicle) {
         this.spotType = spotType;
         this.floors = floors;
-        this.building = building;
+        this.parkingLot = parkingLot;
         this.parkedVehicle = parkedVehicle;
     }
 
@@ -33,8 +33,8 @@ public class ParkingSpot {
         return floors;
     }
 
-    public Building getBuilding() {
-        return building;
+    public ParkingLot getBuilding() {
+        return parkingLot;
     }
 
     public boolean isOccupied() {

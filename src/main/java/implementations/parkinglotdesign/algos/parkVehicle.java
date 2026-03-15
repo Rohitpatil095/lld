@@ -9,19 +9,19 @@ public class parkVehicle {
 
     private SpotType type;
     private Vehicle vehicle;
-    private Building building;
+    private ParkingLot parkingLot;
     private ReentrantLock lock;
 
-    public  parkVehicle(SpotType type,Vehicle vehicle, Building building, ReentrantLock lock){
+    public  parkVehicle(SpotType type, Vehicle vehicle, ParkingLot parkingLot, ReentrantLock lock){
         this.type=type;
         this.vehicle=vehicle;
-        this.building=building;
+        this.parkingLot = parkingLot;
         this.lock=lock;
     }
 
     public void park(){
 
-        for(Floors floors :building.getFloor()){
+        for(Floors floors : parkingLot.getFloor()){
             for(ParkingSpot spot: floors.getSpots()){
                 if(!lock.tryLock()){
                     return;
