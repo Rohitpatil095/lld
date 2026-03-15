@@ -31,4 +31,12 @@ public class ParkingLot {
         return floors;
     }
 
+    public boolean parkVehicle(Vehicle vehicle){
+        if(loc)
+        return false;
+    }
+    public  void unpark(){
+
+    };
+
 }

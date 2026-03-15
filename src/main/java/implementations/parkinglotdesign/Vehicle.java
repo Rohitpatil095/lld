@@ -28,9 +28,8 @@ public abstract  class Vehicle {
     }
 
     public static Vehicle createVehicle(String licensePlate, VehicleType vehicleType){
-        if(vehicleType.equals(VehicleType.MOTORCYCLE)){
-
-        }
+        VehicleFactory vehicle=new VehicleFactory(licensePlate,vehicleType);
+        return vehicle;
     }
 
 }
