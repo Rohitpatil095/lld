@@ -1,27 +1,30 @@
 package implementations.parkinglotdesign;
 
+import implementations.parkinglotdesign.constants.SpotType;
 import implementations.parkinglotdesign.constants.VehicleType;
 
-public class Vehicle {
+public abstract  class Vehicle {
 
     private String id;
-    private String liscencePlate;
+    private String licensePlate;
     private VehicleType vehicleType;
 
     // constructor, getters
 
 
     public Vehicle(String liscencePlate, VehicleType vehicleType) {
-        this.liscencePlate = liscencePlate;
+        this.licensePlate = liscencePlate;
         this.vehicleType = vehicleType;
     }
 
+    public  abstract SpotType getRequiredSpotSize();
+
     public String getLiscencePlate() {
-        return liscencePlate;
+        return licensePlate;
     }
 
     public void setLiscencePlate(String liscencePlate) {
-        this.liscencePlate = liscencePlate;
+        this.licensePlate = liscencePlate;
     }
 
     public VehicleType getVehicleType() {
