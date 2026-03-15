@@ -3,7 +3,6 @@ package implementations.parkinglotdesign.algos;
 import implementations.parkinglotdesign.*;
 import implementations.parkinglotdesign.constants.SpotType;
 
-import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
 public class parkVehicle {
@@ -22,32 +21,36 @@ public class parkVehicle {
 
     public void park(){
 
-        for(Floor floor :building.getFloor()){
-            for(ParkingSpot spot: floor.getSpots()){
+        for(Floors floors :building.getFloor()){
+            for(ParkingSpot spot: floors.getSpots()){
                 if(!lock.tryLock()){
                     return;
                 }
-                
-                if(spot.isOccupied()){
-                    if(vehicle.getVehicleType().equals("MOTORCYCLE") ){
-                        if(spot.getSpotType().equals("SMALL")){
-                            spot.setParkedVehicle(vehicle);
-                            spot.setOccupied(true);
-                            return;
-                        }
-                    }else if(vehicle.getVehicleType().equals("CAR") ){
-                        if(spot.getSpotType().equals("MEDIUM") ){
-                            spot.setParkedVehicle(vehicle);
-                            spot.setOccupied(true);
-                            return;
-                        }
-                    }else if(vehicle.getVehicleType().equals("TRUCK") ){
-                        if(spot.getSpotType().equals("LARGE")){
-                            spot.setParkedVehicle(vehicle);
-                            spot.setOccupied(true);
-                            return;
+                try(lock.lock()){
+
+                    if(spot.isOccupied()){
+                        if(vehicle.getVehicleType().equals("MOTORCYCLE") ){
+                            if(spot.getSpotType().equals("SMALL")){
+                                spot.setParkedVehicle(vehicle);
+                                spot.setOccupied(true);
+                                return;
+                            }
+                        }else if(vehicle.getVehicleType().equals("CAR") ){
+                            if(spot.getSpotType().equals("MEDIUM") ){
+                                spot.setParkedVehicle(vehicle);
+                                spot.setOccupied(true);
+                                return;
+                            }
+                        }else if(vehicle.getVehicleType().equals("TRUCK") ){
+                            if(spot.getSpotType().equals("LARGE")){
+                                spot.setParkedVehicle(vehicle);
+                                spot.setOccupied(true);
+                                return;
+                            }
                         }
                     }
+                }finally {
+                    lock.unlock();
                 }
             }
         }

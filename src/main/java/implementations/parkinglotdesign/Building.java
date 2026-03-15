@@ -3,19 +3,16 @@ package implementations.parkinglotdesign;
 import java.util.List;
 
 public class Building {
-    private List<Floor> floor;
+    private List<Floors> floors;
     private String id;
 
 
-    public Building(List<Floor> floor) {
-        this.floor = floor;
+    public Building(List<Floors> floors) {
+        this.floors = floors;
     }
 
-    public List<Floor> getFloor() {
-        return floor;
+    public List<Floors> getFloors() {
+        return floors;
     }
 
-    public void setFloor(List<Floor> floor) {
-        this.floor = floor;
-    }
 }

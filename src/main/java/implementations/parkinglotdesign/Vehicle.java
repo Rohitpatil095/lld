@@ -17,21 +17,13 @@ public abstract  class Vehicle {
         this.vehicleType = vehicleType;
     }
 
-    public  abstract SpotType getRequiredSpotSize();
+    protected abstract SpotType getRequiredSpotSize();
 
     public String getLiscencePlate() {
         return licensePlate;
     }
 
-    public void setLiscencePlate(String liscencePlate) {
-        this.licensePlate = liscencePlate;
-    }
-
     public VehicleType getVehicleType() {
         return vehicleType;
-    }
-
-    public void setVehicleType(VehicleType vehicleType) {
-        this.vehicleType = vehicleType;
     }
 }
